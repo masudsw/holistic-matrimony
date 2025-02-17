@@ -1,18 +1,24 @@
 import type { Config } from "tailwindcss";
-
-export default {
-  content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
-  ],
-  theme: {
-    extend: {
-      colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+const withMT = require("@material-tailwind/react/utils/withMT");
+module.exports=withMT(
+  {
+    content: [
+      "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
+      "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
+      "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+      "./src/Home/**/*.{js,ts,jsx,tsx}",
+    ],
+    theme: {
+      extend: {
+        colors: {
+          background: "var(--background)",
+          foreground: "var(--foreground)",
+        },
       },
     },
-  },
-  plugins: [],
-} satisfies Config;
+    plugins: [
+      require('daisyui'),
+    ],
+  }
+
+)  satisfies Config;
